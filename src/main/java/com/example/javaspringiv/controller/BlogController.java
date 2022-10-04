@@ -1,8 +1,11 @@
 package com.example.javaspringiv.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.javaspringiv.dto.BlogDTO;
+import com.example.javaspringiv.service.BlogService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 
@@ -10,8 +13,11 @@ import java.time.LocalDateTime;
 @RequestMapping("/blogs")
 public class BlogController {
 
-    @GetMapping
-    public LocalDateTime teste() {
-        return LocalDateTime.now();
+    @Autowired
+    private BlogService service;
+
+    @PostMapping
+    public ResponseEntity<Integer> create(@RequestBody BlogDTO blog) {
+        return new ResponseEntity<>(service.create(blog), HttpStatus.CREATED);
     }
 }
