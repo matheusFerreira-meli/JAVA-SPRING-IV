@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Blog 1",
+    "author": "Author 1",
+    "publicationDate": "2022-10-04T17:47:10.217596"
+  },
+  {
+    "id": 2,
+    "title": "Blog 2",
+    "author": "Author 1",
+    "publicationDate": "2022-10-04T17:47:10.217596"
+  },
+  {
+    "id": 3,
+    "title": "Blog 3",
+    "author": "Author 2",
+    "publicationDate": "2022-10-04T17:47:10.217596"
+  }
+]
