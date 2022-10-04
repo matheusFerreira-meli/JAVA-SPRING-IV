@@ -10,12 +10,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class BlogDTO {
     String title, author;
-    LocalDateTime publicationDate;
-    int id;
 
     public BlogDTO(Blog blog) {
         this.author = blog.getAuthor();
-        this.publicationDate = blog.getPublicationDate();
         this.title = blog.getTitle();
     }
 }

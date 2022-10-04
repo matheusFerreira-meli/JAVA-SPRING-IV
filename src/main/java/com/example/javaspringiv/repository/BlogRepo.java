@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,12 +33,11 @@ public class BlogRepo {
 
     public int create(BlogDTO blog) {
         int id = generateId.getId();
-        blog.setId(id);
-        blogList.add(new Blog(blog.getId(), blog.getTitle(), blog.getAuthor(), blog.getPublicationDate()));
+        blogList.add(new Blog(generateId.getId(), blog.getTitle(), blog.getAuthor(), LocalDateTime.now()));
 
         try {
-            ObjectWriter writter = mapper.writer(new DefaultPrettyPrinter());
-            writter.writeValue(new File(linkFile), blogList);
+            ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
+            writer.writeValue(new File(linkFile), blogList);
         } catch (Exception ex) {
             System.out.println("Não foi possível escrever no arquivo");
         }

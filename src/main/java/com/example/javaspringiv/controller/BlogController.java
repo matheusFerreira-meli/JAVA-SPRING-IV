@@ -1,6 +1,7 @@
 package com.example.javaspringiv.controller;
 
 import com.example.javaspringiv.dto.BlogDTO;
+import com.example.javaspringiv.dto.ResponseCreatedBlogDTO;
 import com.example.javaspringiv.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class BlogController {
     private BlogService service;
 
     @PostMapping
-    public ResponseEntity<Integer> create(@RequestBody BlogDTO blog) {
+    public ResponseEntity<ResponseCreatedBlogDTO> create(@RequestBody BlogDTO blog) {
         return new ResponseEntity<>(service.create(blog), HttpStatus.CREATED);
     }
 }
