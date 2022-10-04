@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class BlogRepo {
@@ -29,6 +30,16 @@ public class BlogRepo {
             System.out.println("Falha ao ler o arquivo");
         }
         generateId = GenerateId.getInstance();
+    }
+
+    public Optional<Blog> get(int id) {
+        for(Blog blog: blogList) {
+            if (blog.getId() == id) {
+                return Optional.of(blog);
+            }
+        }
+
+        return Optional.empty();
     }
 
     public int create(BlogDTO blog) {
