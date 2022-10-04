@@ -55,4 +55,8 @@ public class BlogRepo {
 
         return id;
     }
+
+    public List<Blog> getAll() {
+        return blogList;
+    }
 }

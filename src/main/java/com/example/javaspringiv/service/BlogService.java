@@ -26,7 +26,7 @@ public class BlogService implements IBlogService {
 
     @Override
     public List<Blog> getAll() {
-        return null;
+        return repo.getAll();
     }
 
     @Override
